@@ -46,9 +46,17 @@ public:
 
     void updateNode(int pos, int newVal)
     {
+        // Check if the list is empty
+        if (head == nullptr)
+        {
+            cout << "The list is empty. No nodes to update.\n";
+            return;
+        }
+
         if (pos < 0)
         {
-            cout << "Position must be positive\n";
+            cout << "Position must be non-negative\n";
+            return;
         }
 
         Node *temp = head;
@@ -58,13 +66,15 @@ public:
         {
             if (currPosition == pos)
             {
-                cout << "Old Value : " << temp->data << "\n";
+                cout << "Old Value: " << temp->data << "\n";
                 temp->data = newVal;
-                cout << "New Value : " << temp->data << "at position" << "\n";
+                cout << "New Value: " << temp->data << " at position " << pos << "\n";
+                return; // Exit after updating
             }
             temp = temp->next;
             currPosition++;
         }
+
         cout << "Position out of range\n";
     }
 
