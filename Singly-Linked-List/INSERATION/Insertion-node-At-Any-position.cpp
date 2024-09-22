@@ -57,33 +57,31 @@ class LinkedList
         temp->next = new_node;
     }
 
-    void insertAtPosition( int val, int pos)
-    {
-        // Handle inserting at the head (position 0)
-        if (pos == 1)
-        {
-            insertAtBeginning( val);
-        }
+    void insertAtPosition(int val, int pos) {
+    // Handle inserting at the head (position 0)
+    if (pos == 0) {
+        insertAtBeginning(val);
+        return;  // Exit after inserting at the beginning
+    }
 
-        Node* new_node = new Node(val);
-        Node* temp = head;
-        int currPosition = 1;
+    Node* new_node = new Node(val);
+    Node* temp = head;
+    int currPosition = 0;  // Start at position 0
 
-        while (currPosition != pos - 1 && temp != nullptr)
-        {
-            temp = temp->next;
-            currPosition++;
-        }
+    while (currPosition < pos - 1 && temp != nullptr) {
+        temp = temp->next;
+        currPosition++;
+    }
 
-        if (temp == nullptr)
-        {
-            cout << "Position out of bounds!" << endl;
-            delete new_node;
-        }
-
+    if (temp == nullptr) {
+        cout << "Position out of bounds!" << endl;
+        delete new_node;  // Free memory if the position is invalid
+    } else {
         new_node->next = temp->next;
         temp->next = new_node;
     }
+}
+
 
     void display()
     {
