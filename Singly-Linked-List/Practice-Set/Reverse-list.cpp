@@ -8,7 +8,7 @@ class Node
 public:
     int data;
     Node *next;
-    Node(int val) : data(val), next(nullptr) {}
+    Node(int val) : data(val), next(NULL) {}
 };
 
 class Linked
@@ -17,19 +17,19 @@ private:
     Node *head;
 
 public:
-    Linked() : head(nullptr) {}
+    Linked() : head(NULL) {}
 
     void append(int val)
     {
         Node *newNode = new Node(val);
-        if (head == nullptr)
+        if (head == NULL)
         {
             head = newNode;
         }
         else
         {
             Node *temp = head;
-            while (temp->next != nullptr)
+            while (temp->next != NULL)
             {
                 temp = temp->next;
             }
@@ -40,11 +40,11 @@ public:
     // function to reverse the list
     void reverse()
     {
-        Node *prevNode = nullptr;
+        Node *prevNode = NULL;
         Node *currNode = head;
-        Node *next = nullptr;
+        Node *next = NULL;
 
-        while (currNode != nullptr)
+        while (currNode != NULL)
         {
             next = currNode->next;     // store the next node
             currNode->next = prevNode; //  reverse the current node pointer
@@ -57,19 +57,19 @@ public:
     void display()
     {
         Node *temp = head;
-        while (temp != nullptr)
+        while (temp != NULL)
         {
             cout << temp->data << " -> ";
             temp = temp->next;
         }
-        cout << "nullptr" << endl;
+        cout << "NULL" << endl;
     }
 
     ~Linked()   //clean up the memory
     {
         Node* currNode = head;
-        Node* next = nullptr;
-        while(currNode != nullptr)
+        Node* next = NULL;
+        while(currNode != NULL)
         {
             next = currNode->next;
             delete currNode;
@@ -97,5 +97,5 @@ int main()
 
 // Output below
 
-// Original list: 1 -> 2 -> 3 -> 4 -> nullptr
-// Reversed list: 4 -> 3 -> 2 -> 1 -> nullptr
+// Original list: 1 -> 2 -> 3 -> 4 -> NULL
+// Reversed list: 4 -> 3 -> 2 -> 1 -> NULL
